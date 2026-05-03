@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Vanessa 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="opening" class="opening">
+  <p>I made something for you 💌</p>
+  <button onclick="startSite()">Open</button>
+</div>
+
+<audio id="bgm" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_115b9b7d5d.mp3">
+</audio>
+
+<div id="floatingHearts"></div>
+
+<main id="mainContent" class="hidden">
+  <div class="card">
+
+    <p>For special degem,</p>
+    <h1>Siaw Vanessa Gabriela Setiawan</h1>
+
+    <p class="desc">
+      I prepared a small moment with all my heart.<br>
+      I hope this could be the beginning of something sweet between us.
+    </p>
+
+    <div class="info">
+      <div class="info-item">
+        <div class="info-icon">📅</div>
+        <div class="info-label">DATE</div>
+        <strong>May 20, 2026</strong>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">⏰</div>
+        <div class="info-label">TIME</div>
+        <strong>18.30 WIB</strong>
+      </div>
+
+      <div class="info-item">
+        <div class="info-icon">👗</div>
+        <div class="info-label">DRESS CODE</div>
+        <strong>Free Style</strong>
+      </div>
+    </div>
+
+    <div class="question">
+      你愿意做我的女朋友吗？
+    </div>
+    
+    <p class="verse">
+  <span id="typingVerse"></span>
+</p>
+
+    <div class="buttons">
+      <button class="yes" onclick="acceptLove()">Yes 💗</button>
+      <button class="no" id="noBtn">No</button>
+    </div>
+
+    <div id="message" class="message">
+      You just made me the happiest person alive 💖
+    </div>
+
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
