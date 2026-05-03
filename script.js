@@ -46,9 +46,14 @@ function acceptLove(){
   const msg = document.getElementById("message");
 
   msg.style.display = "block";
-  msg.innerHTML = "She said yes... and my heart just exploded 💖🎉";
+  msg.innerHTML = `
+    <div class="yes-popup">
+      <h2>She said yes 💖</h2>
+      <p>Our story starts on May 20, 2026.</p>
+    </div>
+  `;
 
-  launchLoveConfetti();
+  launchHeartBurst();
 }
 
 // ================= NO BUTTON ESCAPE 😈 =================
@@ -119,5 +124,27 @@ function launchLoveConfetti() {
     setTimeout(() => {
       confetti.remove();
     }, 4000);
+  }
+}
+function launchHeartBurst() {
+  const emojis = ["💖", "💕", "💗", "✨"];
+
+  for (let i = 0; i < 35; i++) {
+    const heart = document.createElement("div");
+    heart.className = "burst-heart";
+    heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+    heart.style.left = "50%";
+    heart.style.top = "50%";
+
+    const x = (Math.random() - 0.5) * 500;
+    const y = (Math.random() - 0.5) * 400;
+
+    heart.style.setProperty("--x", `${x}px`);
+    heart.style.setProperty("--y", `${y}px`);
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 1600);
   }
 }
