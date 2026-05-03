@@ -157,3 +157,17 @@ h1{
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
+#confettiCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.message {
+  display: none;
+  margin-top: 15px;
+  color: #e11d48;
+  font-weight: bold;
+  font-size: 18px;
+}
