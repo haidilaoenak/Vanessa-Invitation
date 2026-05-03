@@ -11,14 +11,14 @@ for (let i = 0; i < 25; i++) {
 }
 
 // ================= OPENING =================
-function startSite(){
+function startSite() {
   document.getElementById("opening").style.display = "none";
   document.getElementById("mainContent").classList.remove("hidden");
 
   const music = document.getElementById("bgm");
   if (music) music.play();
 
-  typeVerse(); // mulai efek ketik
+  typeVerse();
 }
 
 // ================= TYPING VERSE =================
@@ -42,7 +42,7 @@ function typeVerse() {
 }
 
 // ================= YES BUTTON =================
-function acceptLove(){
+function acceptLove() {
   const msg = document.getElementById("message");
 
   msg.style.display = "block";
@@ -56,7 +56,31 @@ function acceptLove(){
   launchHeartBurst();
 }
 
-// ================= NO BUTTON ESCAPE 😈 =================
+// ================= HEART BURST =================
+function launchHeartBurst() {
+  const emojis = ["💖", "💕", "💗", "✨"];
+
+  for (let i = 0; i < 45; i++) {
+    const heart = document.createElement("div");
+    heart.className = "burst-heart";
+    heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+    heart.style.left = "50%";
+    heart.style.top = "50%";
+
+    const x = (Math.random() - 0.5) * 650;
+    const y = (Math.random() - 0.5) * 450;
+
+    heart.style.setProperty("--x", `${x}px`);
+    heart.style.setProperty("--y", `${y}px`);
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 1600);
+  }
+}
+
+// ================= NO BUTTON ESCAPE =================
 const noBtn = document.getElementById("noBtn");
 
 if (noBtn) {
@@ -67,84 +91,4 @@ if (noBtn) {
   });
 }
 
-// ================= CONFETTI =================
-function launchConfetti() {
-  const canvas = document.getElementById("confettiCanvas");
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d");
-
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  const pieces = [];
-
-  for (let i = 0; i < 150; i++) {
-    pieces.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height - canvas.height,
-      size: Math.random() * 8 + 4,
-      speed: Math.random() * 3 + 2,
-      color: `hsl(${Math.random() * 360}, 80%, 70%)`
-    });
-  }
-
-  function update() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    pieces.forEach(p => {
-      p.y += p.speed;
-
-      ctx.fillStyle = p.color;
-      ctx.fillRect(p.x, p.y, p.size, p.size);
-    });
-
-    requestAnimationFrame(update);
-  }
-
-  update();
-}
-
-// ================= DEBUG =================
 console.log("script loaded ✅");
-function launchLoveConfetti() {
-  const emojis = ["💖", "💗", "💕", "🌸", "✨", "🎉"];
-
-  for (let i = 0; i < 80; i++) {
-    const confetti = document.createElement("div");
-    confetti.className = "confetti";
-    confetti.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-
-    confetti.style.left = Math.random() * 100 + "vw";
-    confetti.style.animationDuration = (2 + Math.random() * 2) + "s";
-    confetti.style.fontSize = (16 + Math.random() * 18) + "px";
-
-    document.body.appendChild(confetti);
-
-    setTimeout(() => {
-      confetti.remove();
-    }, 4000);
-  }
-}
-function launchHeartBurst() {
-  const emojis = ["💖", "💕", "💗", "✨"];
-
-  for (let i = 0; i < 35; i++) {
-    const heart = document.createElement("div");
-    heart.className = "burst-heart";
-    heart.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-
-    heart.style.left = "50%";
-    heart.style.top = "50%";
-
-    const x = (Math.random() - 0.5) * 500;
-    const y = (Math.random() - 0.5) * 400;
-
-    heart.style.setProperty("--x", `${x}px`);
-    heart.style.setProperty("--y", `${y}px`);
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 1600);
-  }
-}
