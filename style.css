@@ -171,3 +171,18 @@ h1{
   font-weight: bold;
   font-size: 18px;
 }
+.confetti {
+  position: fixed;
+  top: -20px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: fall 3s linear forwards;
+  font-size: 22px;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
