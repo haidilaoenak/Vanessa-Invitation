@@ -21,7 +21,11 @@ function startSite(){
 
 // yes
 function acceptLove(){
-  document.getElementById("message").style.display="block";
+  const msg = document.getElementById("message");
+  msg.style.display = "block";
+  msg.innerHTML = "You just made me the happiest person alive 💖";
+
+  launchConfetti();
 }
 
 // no kabur 😈
@@ -46,4 +50,39 @@ function typeVerse() {
   } else {
     typingVerse.innerHTML = verseText;
   }
+}
+function launchConfetti() {
+  const canvas = document.getElementById("confettiCanvas");
+  const ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const pieces = [];
+
+  for (let i = 0; i < 150; i++) {
+    pieces.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      size: Math.random() * 8 + 4,
+      speed: Math.random() * 3 + 2,
+      color: `hsl(${Math.random() * 360}, 80%, 70%)`
+    });
+  }
+
+  function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    pieces.forEach(p => {
+      p.y += p.speed;
+      if (p.y > canvas.height) p.y = -10;
+
+      ctx.fillStyle = p.color;
+      ctx.fillRect(p.x, p.y, p.size, p.size);
+    });
+
+    requestAnimationFrame(update);
+  }
+
+  update();
 }
