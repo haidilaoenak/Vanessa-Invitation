@@ -23,7 +23,7 @@ function startSite(){
 function acceptLove(){
   const msg = document.getElementById("message");
   msg.style.display = "block";
-  msg.innerHTML = "You just made me the happiest person alive 💖";
+  msg.innerHTML = "She said yes... and my heart just exploded 💖🎉";
 
   launchConfetti();
 }
