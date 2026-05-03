@@ -46,7 +46,7 @@ function acceptLove() {
   const msg = document.getElementById("message");
 
   msg.style.display = "block";
-msg.innerHTML = `
+  msg.innerHTML = `
   <div class="yes-popup">
     <h2>그녀가 승낙했어 💖</h2>
     <p>우리의 이야기는 2026년 5월 20일에 시작돼.</p>
