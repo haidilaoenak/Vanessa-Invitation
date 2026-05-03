@@ -48,7 +48,7 @@ function acceptLove(){
   msg.style.display = "block";
   msg.innerHTML = "She said yes... and my heart just exploded 💖🎉";
 
-  launchConfetti();
+  launchLoveConfetti();
 }
 
 // ================= NO BUTTON ESCAPE 😈 =================
@@ -102,3 +102,22 @@ function launchConfetti() {
 
 // ================= DEBUG =================
 console.log("script loaded ✅");
+function launchLoveConfetti() {
+  const emojis = ["💖", "💗", "💕", "🌸", "✨", "🎉"];
+
+  for (let i = 0; i < 80; i++) {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.animationDuration = (2 + Math.random() * 2) + "s";
+    confetti.style.fontSize = (16 + Math.random() * 18) + "px";
+
+    document.body.appendChild(confetti);
+
+    setTimeout(() => {
+      confetti.remove();
+    }, 4000);
+  }
+}
