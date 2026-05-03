@@ -46,12 +46,12 @@ function acceptLove() {
   const msg = document.getElementById("message");
 
   msg.style.display = "block";
-  msg.innerHTML = `
-    <div class="yes-popup">
-      <h2>She said yes 💖</h2>
-      <p>Our story starts on May 20, 2026.</p>
-    </div>
-  `;
+msg.innerHTML = `
+  <div class="yes-popup">
+    <h2>그녀가 승낙했어 💖</h2>
+    <p>우리의 이야기는 2026년 5월 20일에 시작돼.</p>
+  </div>
+`;
 
   launchHeartBurst();
 }
